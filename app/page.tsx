@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import PaymentMethodCard from "@/components/PaymentMethodCard";
 import { PaymentOptions } from "@/constants/constants";
 import {
+  AppWindow,
   LogIn,
   LogOut,
   QrCodeIcon,
@@ -50,7 +51,15 @@ export default function Home() {
                     <p className="text-sm text-green-500">verified</p>
                   </div>
 
-                  <Link href={"/profile"} className="my-1 flex">
+                  <Link href={"/dashboard"} className="my-2 flex">
+                    <AppWindow size={20} className="text-gray-800" />
+
+                    <div className="ml-2">
+                      <p className="text-base ">Dashboard</p>
+                    </div>
+                  </Link>
+
+                  <Link href={"/profile"} className="my-2 flex">
                     <User2Icon size={20} className="text-gray-800" />
 
                     <div className="ml-2">
