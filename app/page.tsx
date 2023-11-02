@@ -88,6 +88,17 @@ export default function Home() {
                 variant="bg-black"
               />
             </Link>
+
+            <div className="px-2">
+              <Link href="/payment">
+                <Button
+                  text="Scan / Generate"
+                  type="button"
+                  icon={<QrCodeIcon size={20} className="mx-2" />}
+                  variant="bg-black"
+                />
+              </Link>
+            </div>
           </div>
         </nav>
 

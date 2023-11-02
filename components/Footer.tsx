@@ -8,11 +8,13 @@ const Footer = () => {
       <div className="flex">
         <div className="m-auto w-4/5">
           <div className="py-6">
-            <Link href={"/"}>
-              <h3 className="font-bold text-3xl">
-                Val<span className="text-green-400">la</span>
-              </h3>
-            </Link>
+            <div className="w-fit">
+              <Link href={"/"}>
+                <h3 className="font-bold text-3xl">
+                  Val<span className="text-green-400">la</span>
+                </h3>
+              </Link>
+            </div>
 
             <div className="pt-2 pb-3">
               <div className="flex gap-4">
