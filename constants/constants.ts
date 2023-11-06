@@ -22,3 +22,5 @@ export const SelectedPaymentOptions: { title: String; cardNumber: String }[] = [
     cardNumber: "@jeremyMa",
   },
 ];
+
+export const ApiKeys: String[] = ["**************M3Kv", "**************26iD"]

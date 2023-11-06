@@ -1,12 +1,15 @@
+import ApiKey from "@/components/ApiKey";
 import ButtonCustom from "@/components/ButtonCustom";
 import Sidenav from "@/components/Sidenav";
 import UpdatePassword from "@/components/UpdatePassword";
 import UpdateProfile from "@/components/UpdateProfile";
+import { ApiKeys } from "@/constants/constants";
 import {
   CameraIcon,
   Edit,
   HelpCircle,
   Lock,
+  Plus,
   QrCodeIcon,
   Trash2Icon,
   User2Icon,
@@ -37,7 +40,7 @@ const Profile = () => {
       </nav>
 
       {/* <UpdateProfile /> */}
-      <UpdatePassword />
+      {/* <UpdatePassword /> */}
 
       <div className="pb-8 pt-4">
         <div className="flex">
@@ -134,40 +137,25 @@ const Profile = () => {
 
                   <div className="py-4">
                     <div className="pt-2 pb-8">
-                      <div>
+                      <div className="flex justify-between">
                         <h3 className="text-lg font-semibold">API Keys</h3>
+
+                        <div className="">
+                        <ButtonCustom
+                              type="button"
+                              variant="bg-black"
+                              text="Add key"
+                              icon={<Plus />}
+                            />
+                        </div>
                       </div>
 
                       <div className="py-2 w-2/5">
-                        <div className="pt-6 pb-4 border-b-[1.8px] border-b-gray-200 flex">
-                          <p className="text-sm font-bold my-2">
-                            **************M3Ks
-                          </p>
-
-                          <div className="pl-8">
-                            <ButtonCustom
-                              type="button"
-                              variant="bg-black"
-                              text="remove"
-                              icon={<Trash2Icon />}
-                            />
-                          </div>
-                        </div>
-
-                        <div className="pt-6 pb-4 border-b-[1.8px] border-b-gray-200 flex">
-                          <p className="text-sm font-bold my-2">
-                            **************26iD
-                          </p>
-
-                          <div className="pl-8">
-                            <ButtonCustom
-                              type="button"
-                              variant="bg-black"
-                              text="remove"
-                              icon={<Trash2Icon />}
-                            />
-                          </div>
-                        </div>
+                        {
+                          ApiKeys.map((key: String, index: Number | any) => (
+                            <ApiKey key={index} value={key}  />
+                          ))
+                        }
                       </div>
                     </div>
 

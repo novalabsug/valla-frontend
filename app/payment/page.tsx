@@ -7,6 +7,7 @@ import {
   LogIn,
   LogOut,
   QrCodeIcon,
+  Smartphone,
   User2Icon,
   X,
 } from "lucide-react";
@@ -136,7 +137,13 @@ const Payment = () => {
                   <div className="flex">
                     <div className="m-auto w-4/5">
                       <div className="grid grid-cols-2">
-                        <div className="py-8 flex justify-center flex-col items-center border-r-2 border-r-gray-500">
+                        <div className="lg:block sm:block hidden border-r-2 border-r-gray-500 pt-10 pb-4 px-8">
+                          <h3 className="text-2xl font-semibold text-center">Switch to mobile phone device to scan code</h3>
+
+                          <div className="py-3 flex justify-center items-center"><Smartphone size={50} className="text-green-500" /></div>
+                        </div>
+
+                        <div className="lg:hidden sm:hidden py-8 flex justify-center flex-col items-center border-r-2 border-r-gray-500">
                           <div className="p-2 w-fit h-fit border-2 rounded-lg border-gray-700 cursor-pointer">
                             <QrCodeIcon
                               size={120}
