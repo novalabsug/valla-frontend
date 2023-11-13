@@ -6,8 +6,6 @@ import ButtonCustom from "./ButtonCustom";
 const Navbar = () => {
   const [userDropdown, setUserDropdown] = useState(false);
 
-  console.log(userDropdown);
-
   return (
     <nav className="py-6 px-12 flex justify-between">
       <Link href={"/"}>
