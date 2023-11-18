@@ -1,4 +1,5 @@
-import React from "react";
+import { Trash2 } from "lucide-react";
+import React, { useState } from "react";
 
 const PaymentCard = ({
   title,
@@ -7,13 +8,27 @@ const PaymentCard = ({
   title: String;
   cardNumber: String;
 }) => {
+  const [deleteButtonDisplay, setDeleteButtonDisplay] = useState(false);
+
   return (
-    <div className="rounded-lg cursor-pointer border-2 border-gray-100 hover:border-green-500 p-4">
-      <div className="py-1">
-        <h3 className="uppercase">{title}</h3>
+    <div
+      onMouseEnter={() => setDeleteButtonDisplay((prev) => true)}
+      onMouseLeave={() => setDeleteButtonDisplay((prev) => false)}
+      className="rounded-lg cursor-pointer border-2 border-gray-100 hover:border-[1.5px] hover:border-green-500 py-8 px-4 relative"
+    >
+      <div
+        className={`${
+          deleteButtonDisplay ? "absolute" : "hidden"
+        } top-4 right-4 cursor-pointer`}
+      >
+        <Trash2 className="text-red-500" size={23} />
       </div>
 
-      <div className="pt-6 pb-2">
+      <div className="py-1">
+        <h3 className="uppercase text-sm">{title}</h3>
+      </div>
+
+      <div className="py-1">
         <h3 className="text-lg font-semibold text-gray-600">
           {title == "MOMO Pay"
             ? `${cardNumber.slice(0, 5)}************`

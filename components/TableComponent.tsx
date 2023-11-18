@@ -17,7 +17,7 @@ const TableComponent = () => {
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">Ref Id</TableHead>
-            <TableHead>generated from</TableHead>
+            <TableHead>amount (UGX)</TableHead>
             <TableHead>Method</TableHead>
             <TableHead>Status</TableHead>
             <TableHead className="text-center">Created</TableHead>
@@ -29,7 +29,7 @@ const TableComponent = () => {
             <TableCell className="font-medium">
               {Math.round(Math.random() * 1000000)}
             </TableCell>
-            <TableCell>Self</TableCell>
+            <TableCell>34000</TableCell>
             <TableCell>QR code</TableCell>
             <TableCell>success</TableCell>
             <TableCell className="text-center">02, 06 2023</TableCell>
@@ -39,7 +39,7 @@ const TableComponent = () => {
             <TableCell className="font-medium">
               {Math.round(Math.random() * 1000000)}
             </TableCell>
-            <TableCell>Self</TableCell>
+            <TableCell>74000</TableCell>
             <TableCell>Ref code</TableCell>
             <TableCell>success</TableCell>
             <TableCell className="text-center">22, 08 2023</TableCell>

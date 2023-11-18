@@ -1,6 +1,8 @@
-import { QrCodeIcon } from "lucide-react";
+"use client";
+
+import { Plus, QrCodeIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import ButtonCustom from "@/components/ButtonCustom";
 import Sidenav from "@/components/Sidenav";
 import { PaymentOptions, SelectedPaymentOptions } from "@/constants/constants";
@@ -8,6 +10,20 @@ import PaymentCard from "@/components/PaymentCard";
 import AddPaymentMethod from "@/components/AddPaymentMethod";
 
 const PaymentMethods = () => {
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
+  const [addPayMethodModalDisplay, setAddPayMethodModalDisplay] =
+    useState(false);
+
+  const checkIfAdded = (value: string): boolean => {
+    const paymentMethod = SelectedPaymentOptions.filter(
+      (method) => method.title === value
+    );
+
+    if (paymentMethod.length > 0) return true;
+
+    return false;
+  };
+
   return (
     <main>
       <nav className="py-6 px-12 flex justify-between">
@@ -20,7 +36,7 @@ const PaymentMethods = () => {
         <div className="px-2">
           <Link href="/payment">
             <ButtonCustom
-              text="Scan / Generate"
+              text="Payment"
               type="button"
               icon={<QrCodeIcon size={20} className="mx-2" />}
               variant="bg-black"
@@ -29,7 +45,12 @@ const PaymentMethods = () => {
         </div>
       </nav>
 
-      <AddPaymentMethod />
+      {addPayMethodModalDisplay && (
+        <AddPaymentMethod
+          displayModal={setAddPayMethodModalDisplay}
+          paymentMethod={selectedPaymentMethod}
+        />
+      )}
 
       <div className="pb-8 pt-4">
         <div className="flex">
@@ -42,27 +63,61 @@ const PaymentMethods = () => {
                   <div className="py-2">
                     <p className="text-light">Payment Methods</p>
                     <h3 className="font-semibold text-2xl">
-                      <span className="text-green-500">2 </span> Added
+                      <span className="text-green-500">
+                        {SelectedPaymentOptions.length}{" "}
+                      </span>{" "}
+                      Added
                     </h3>
                   </div>
 
-                  <div className="py-2">
-                    <select
-                      name="paymentOptions"
-                      id="paymentOptions"
-                      title="Add Payment method"
-                      className="py-2 px-3 rounded-md bg-black text-white w-[200px] cursor-pointer"
-                    >
-                      {PaymentOptions.map((value, index) => (
-                        <option
-                          value={value.toLowerCase()}
-                          key={index}
-                          className="bg-black border-b-2 border-b-gray-600 outline-none py-1"
-                        >
-                          {value}
+                  <div className="py-4">
+                    <div className="py-2">
+                      <p className="text-light">Add Payment Method</p>
+                    </div>
+
+                    <div className="flex gap-6">
+                      <select
+                        name="paymentOptions"
+                        id="paymentOptions"
+                        title="Add Payment method"
+                        className="py-2 px-3 rounded-md border-black border-[1.5px] w-[250px] cursor-pointer focus:border-[1px] focus:border-green-500"
+                        onChange={(e) =>
+                          setSelectedPaymentMethod((prev) => e.target.value)
+                        }
+                      >
+                        <option value={undefined}>
+                          -- Select payment method
                         </option>
-                      ))}
-                    </select>
+
+                        {PaymentOptions.map((value, index) => (
+                          <option
+                            value={value.toLowerCase()}
+                            key={index}
+                            className="py-1"
+                            disabled={checkIfAdded(value.toString())}
+                          >
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+
+                      <div
+                        className="w-fit"
+                        onClick={() => {
+                          if (selectedPaymentMethod == "") return;
+
+                          setAddPayMethodModalDisplay((prev: boolean) =>
+                            prev ? false : true
+                          );
+                        }}
+                      >
+                        <ButtonCustom
+                          type={"submit"}
+                          text="Add Payment"
+                          variant="bg-black"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
 

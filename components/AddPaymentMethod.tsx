@@ -1,17 +1,26 @@
 import { X } from "lucide-react";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import ButtonCustom from "./ButtonCustom";
 
-const AddPaymentMethod = () => {
+const AddPaymentMethod = ({
+  displayModal,
+  paymentMethod,
+}: {
+  displayModal: Dispatch<SetStateAction<boolean>>;
+  paymentMethod: string;
+}) => {
   return (
     <div className="fixed z-20 p-8 top-[10%] left-[20%] right-[20%] bg-white rounded-lg shadow-md">
-      <div className="absolute top-4 right-4 cursor-pointer">
+      <div
+        className="absolute top-4 right-4 cursor-pointer"
+        onClick={() => displayModal((prev: boolean) => (prev ? false : true))}
+      >
         <X size={29} />
       </div>
 
       <div className="py-2">
         <h3 className="text-2xl font-semibold">Add payment method</h3>
-        <p className="text-lg">VISA Card</p>
+        <p className="text-lg text-green-500">{paymentMethod}</p>
         <p>
           <span className="font-bold text-lg">Note:</span> your card number will
           be switched for a valla card number for security purposes

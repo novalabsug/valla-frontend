@@ -1,22 +1,18 @@
+"use client";
+
 import ButtonCustom from "@/components/ButtonCustom";
+import GeneratePayment from "@/components/GeneratePayment";
 import Sidenav from "@/components/Sidenav";
 import TableComponent from "@/components/TableComponent";
-import {
-  AppWindow,
-  BellIcon,
-  HelpCircle,
-  LogIn,
-  LogOut,
-  MessageSquareIcon,
-  Plus,
-  QrCodeIcon,
-  User2Icon,
-  X,
-} from "lucide-react";
+import { BellIcon, HelpCircle, QrCodeIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Dashboard = () => {
+  const [genPaymentModalDisplay, setGenPaymentModalDisplay] = useState(false);
+  const [notificationModalDisplay, setNotificationModalDisplay] =
+    useState(false);
+
   return (
     <main>
       <nav className="py-6 px-12 flex justify-between">
@@ -29,7 +25,7 @@ const Dashboard = () => {
         <div className="px-2">
           <Link href="/payment">
             <ButtonCustom
-              text="Scan / Generate"
+              text="Payment"
               type="button"
               icon={<QrCodeIcon size={20} className="mx-2" />}
               variant="bg-black"
@@ -37,6 +33,10 @@ const Dashboard = () => {
           </Link>
         </div>
       </nav>
+
+      {genPaymentModalDisplay && (
+        <GeneratePayment displayModal={setGenPaymentModalDisplay} />
+      )}
 
       <div className="pb-8 pt-4">
         <div className="flex">
@@ -46,49 +46,68 @@ const Dashboard = () => {
 
               <div className="py-4 px-8 w-4/5">
                 <div className="py-2 relative w-full">
-                  <div className="py-2">
-                    <p className="text-light">Connected Applications</p>
-                    <h3 className="font-semibold text-2xl">
-                      <span className="text-green-500">2 Apps</span> connected
-                    </h3>
-                  </div>
+                  <div className="flex justify-between">
+                    <div className="py-2">
+                      <p className="text-light">Dashboard</p>
 
-                  <div className="py-2"></div>
+                      <div className="px-3 border-[1px] border-slate-400 rounded-lg mt-4 w-fit">
+                        <h3 className="text-lg my-2">
+                          <span className="text-green-500 font-bold text-xl">
+                            223
+                          </span>{" "}
+                          payment codes generated
+                        </h3>
 
-                  <div className="py-2 flex gap-6">
-                    <div>
-                      <ButtonCustom
-                        type="button"
-                        variant="bg-green-500"
-                        text="Connect new app"
-                        icon={<Plus />}
-                      />
+                        <hr />
+
+                        <h3 className="text-lg my-2">
+                          <span className="text-green-500 font-bold text-xl">
+                            243
+                          </span>{" "}
+                          payments made
+                        </h3>
+                      </div>
                     </div>
 
-                    <div>
-                      <ButtonCustom
-                        type="button"
-                        variant="bg-black"
-                        text="Generate code"
-                        icon={<QrCodeIcon />}
-                      />
-                    </div>
+                    <div className="pt-8 pb-2">
+                      <div className="py-2">
+                        <p className="text-light">Vendor feature</p>
+                      </div>
 
-                    <div>
-                      <ButtonCustom
-                        type="button"
-                        variant="bg-black"
-                        text="Activate vendor features"
-                      />
+                      <div
+                        onClick={() =>
+                          setGenPaymentModalDisplay((prev) =>
+                            prev ? false : true
+                          )
+                        }
+                      >
+                        <ButtonCustom
+                          type="button"
+                          variant="bg-black"
+                          text="Generate payment code"
+                          icon={<QrCodeIcon className="mr-2" />}
+                        />
+                      </div>
                     </div>
                   </div>
 
                   <div className="absolute right-0 top-2">
                     <div className="flex gap-4">
                       <div className="relative">
-                        <BellIcon className="cursor-pointer" />
+                        <BellIcon
+                          className="cursor-pointer hover:text-green-500"
+                          onClick={() =>
+                            setNotificationModalDisplay((prev: boolean) =>
+                              prev ? false : true
+                            )
+                          }
+                        />
 
-                        <div className="absolute right-0 bg-white shadow-md rounded-md top-[110%] w-[250px] p-4 z-30 hidden">
+                        <div
+                          className={`${
+                            notificationModalDisplay ? "absolute" : "hidden"
+                          } right-0 bg-white shadow-md rounded-md top-[110%] w-[250px] p-4 z-30`}
+                        >
                           <h3 className="text-semibold my-2">Notifications</h3>
 
                           <hr />

@@ -1,4 +1,11 @@
-import { AppWindow, LogIn, LogOut, User2Icon, X } from "lucide-react";
+import {
+  AppWindow,
+  CreditCard,
+  LogIn,
+  LogOut,
+  User2Icon,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import ButtonCustom from "./ButtonCustom";
@@ -54,6 +61,14 @@ const Navbar = () => {
 
                 <div className="ml-2">
                   <p className="text-base ">Dashboard</p>
+                </div>
+              </Link>
+
+              <Link href={"/payment-methods"} className="my-2 flex">
+                <CreditCard size={20} className="text-gray-800" />
+
+                <div className="ml-2">
+                  <p className="text-base ">Payment Methods</p>
                 </div>
               </Link>
 

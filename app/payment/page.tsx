@@ -4,49 +4,107 @@ import ButtonCustom from "@/components/ButtonCustom";
 import Button from "@/components/ButtonCustom";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import OpcComponent from "@/components/OpcComponent";
+import OpcSidenav from "@/components/OpcSidenav";
+import TransactionLimit from "@/components/TransactionLimit";
 
 import { HelpCircle, QrCodeIcon, Smartphone } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 const Payment = () => {
+  const [transLimitModalDisplay, setTransLimitModalDisplay] = useState(false);
+  const [opcModalDisplay, setOpcModalDisplay] = useState(false);
+  const [opcSidenavModalDisplay, setOpcSidenavModalDisplay] = useState(false);
   return (
     <main>
       <Navbar />
+
+      {transLimitModalDisplay && (
+        <TransactionLimit displayModal={setTransLimitModalDisplay} />
+      )}
+
+      {opcModalDisplay && <OpcComponent displayModal={setOpcModalDisplay} />}
+
+      {opcSidenavModalDisplay && (
+        <OpcSidenav displayModal={setOpcSidenavModalDisplay} />
+      )}
 
       {/* // section */}
       <div className="py-8">
         <div className="flex">
           <div className="m-auto w-[90%]">
             <div className="px-4 pb-3">
-              <div className="flex gap-8">
-                <div className="w-fit">
-                  <h3 className="text-lg font-semibold">
-                    Set transaction limit (Daily)
-                  </h3>
-                  <p className="my-6"></p>
+              <div className="flex">
+                <div className="flex w-2/4 gap-6">
+                  <div className="w-fit">
+                    <h3 className="text-lg font-semibold">
+                      Set transaction limit (Daily)
+                    </h3>
+                    <p className="my-6"></p>
 
-                  <div className="py-2">
-                    <ButtonCustom
-                      type="button"
-                      text="Set limit"
-                      variant="bg-black"
-                    />
+                    <div
+                      className="py-2 w-fit"
+                      onClick={() =>
+                        setTransLimitModalDisplay((prev: boolean) =>
+                          prev ? false : true
+                        )
+                      }
+                    >
+                      <ButtonCustom
+                        type="button"
+                        text="Set limit"
+                        variant="bg-black"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="w-fit">
+                    <div className="flex">
+                      <h3 className="text-lg font-semibold">Generate OPC </h3>
+                      <div className="ml-4">
+                        <HelpCircle className="text-green-500 mt-1" size={15} />
+                      </div>
+                    </div>
+                    <p className="">One-time Payment Codes are temporary</p>
+
+                    <div
+                      className="py-2 w-fit"
+                      onClick={() =>
+                        setOpcModalDisplay((prev: boolean) =>
+                          prev ? false : true
+                        )
+                      }
+                    >
+                      <ButtonCustom
+                        type="button"
+                        text="Create OPC"
+                        variant="bg-black"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                <div className="w-fit">
-                  <div className="flex">
-                    <h3 className="text-lg font-semibold">Generate OPC </h3>
-                    <div className="ml-4">
-                      <HelpCircle className="text-green-500 mt-1" size={15} />
-                    </div>
-                  </div>
-                  <p className="">One-time Payment Codes are temporary</p>
-
-                  <div className="py-2">
+                <div className="w-2/4 flex justify-end gap-6">
+                  <div className="py-2 hidden">
                     <ButtonCustom
                       type="button"
-                      text="Create OPC"
+                      variant="bg-black"
+                      text="Activate vendor features"
+                    />
+                  </div>
+
+                  <div
+                    className="py-2 w-fit"
+                    onClick={() =>
+                      setOpcSidenavModalDisplay((prev: boolean) =>
+                        prev ? false : true
+                      )
+                    }
+                  >
+                    <ButtonCustom
+                      type="button"
+                      text="View OPC's"
                       variant="bg-black"
                     />
                   </div>
@@ -69,7 +127,7 @@ const Payment = () => {
                         10 days ago
                       </p>
 
-                      <p className="text-sm my-1 text-green-500">
+                      <p className="text-md my-1 font-bold text-green-500">
                         <span className="font-semibold text-black">
                           - amount
                         </span>{" "}
@@ -82,7 +140,7 @@ const Payment = () => {
                         13 days ago
                       </p>
 
-                      <p className="text-sm my-1 text-green-500">
+                      <p className="text-md my-1 font-bold text-green-500">
                         <span className="font-semibold text-black">
                           - amount
                         </span>{" "}
@@ -95,7 +153,7 @@ const Payment = () => {
                         13 days ago
                       </p>
 
-                      <p className="text-sm my-1 text-green-500">
+                      <p className="text-md my-1 font-bold text-green-500">
                         <span className="font-semibold text-black">
                           - amount
                         </span>{" "}

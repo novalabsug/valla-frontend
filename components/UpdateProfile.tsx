@@ -1,12 +1,19 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import ButtonCustom from "./ButtonCustom";
 import Link from "next/link";
 import { X } from "lucide-react";
 
-const UpdateProfile = () => {
+const UpdateProfile = ({
+  displayModal,
+}: {
+  displayModal: Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
     <div className="fixed z-20 p-8 top-[10%] left-[20%] right-[20%] bg-white rounded-lg shadow-md">
-      <div className="absolute top-4 right-4 cursor-pointer">
+      <div
+        className="absolute top-4 right-4 cursor-pointer"
+        onClick={() => displayModal((prev: boolean) => (prev ? false : true))}
+      >
         <X size={29} />
       </div>
 

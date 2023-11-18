@@ -1,3 +1,5 @@
+"use client";
+
 import ApiKey from "@/components/ApiKey";
 import ButtonCustom from "@/components/ButtonCustom";
 import Sidenav from "@/components/Sidenav";
@@ -15,9 +17,14 @@ import {
   User2Icon,
 } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Profile = () => {
+  const [updateProfileModalDisplay, setUpdateProfileModalDisplay] =
+    useState(false);
+  const [updatePasswordModalDisplay, setUpdatePasswordModalDisplay] =
+    useState(false);
+
   return (
     <main>
       <nav className="py-6 px-12 flex justify-between">
@@ -30,7 +37,7 @@ const Profile = () => {
         <div className="px-2">
           <Link href="/payment">
             <ButtonCustom
-              text="Scan / Generate"
+              text="Payment"
               type="button"
               icon={<QrCodeIcon size={20} className="mx-2" />}
               variant="bg-black"
@@ -39,8 +46,13 @@ const Profile = () => {
         </div>
       </nav>
 
-      {/* <UpdateProfile /> */}
-      {/* <UpdatePassword /> */}
+      {updateProfileModalDisplay && (
+        <UpdateProfile displayModal={setUpdateProfileModalDisplay} />
+      )}
+
+      {updatePasswordModalDisplay && (
+        <UpdatePassword displayModal={setUpdatePasswordModalDisplay} />
+      )}
 
       <div className="pb-8 pt-4">
         <div className="flex">
@@ -58,7 +70,13 @@ const Profile = () => {
                     </div>
 
                     <div className="pt-2 pb-8 flex gap-6">
-                      <div>
+                      <div
+                        onClick={() =>
+                          setUpdateProfileModalDisplay((prev: boolean) =>
+                            prev ? false : true
+                          )
+                        }
+                      >
                         <ButtonCustom
                           type="button"
                           variant="bg-green-500"
@@ -67,7 +85,13 @@ const Profile = () => {
                         />
                       </div>
 
-                      <div>
+                      <div
+                        onClick={() =>
+                          setUpdatePasswordModalDisplay((prev: boolean) =>
+                            prev ? false : true
+                          )
+                        }
+                      >
                         <ButtonCustom
                           type="button"
                           variant="bg-black"
@@ -140,37 +164,39 @@ const Profile = () => {
                       <div className="flex justify-between">
                         <h3 className="text-lg font-semibold">API Keys</h3>
 
-                        <div className="">
-                        <ButtonCustom
-                              type="button"
-                              variant="bg-black"
-                              text="Add key"
-                              icon={<Plus />}
-                            />
+                        <div className="w-fit">
+                          <ButtonCustom
+                            type="button"
+                            variant="bg-black"
+                            text="Add key"
+                            icon={<Plus />}
+                          />
                         </div>
                       </div>
 
                       <div className="py-2 w-2/5">
-                        {
-                          ApiKeys.map((key: String, index: Number | any) => (
-                            <ApiKey key={index} value={key}  />
-                          ))
-                        }
+                        {ApiKeys.map((key: String, index: Number | any) => (
+                          <ApiKey key={index} value={key} />
+                        ))}
                       </div>
                     </div>
 
                     <div className="bg-gray-50 p-4 rounded-md">
                       <div className="py-2 flex">
-                        <ButtonCustom
-                          type="button"
-                          variant="bg-red-500"
-                          text="delete account"
-                        />
+                        <div className="w-fit">
+                          <ButtonCustom
+                            type="button"
+                            variant="bg-red-500"
+                            text="delete account"
+                          />
+                        </div>
 
-                        <HelpCircle
-                          className="ml-6 cursor-pointer my-2"
-                          size={25}
-                        />
+                        <div className="w-fit">
+                          <HelpCircle
+                            className="ml-6 cursor-pointer my-2"
+                            size={25}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
