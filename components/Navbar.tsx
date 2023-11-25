@@ -15,7 +15,7 @@ const Navbar = () => {
   const [userDropdown, setUserDropdown] = useState(false);
 
   return (
-    <nav className="py-6 px-12 flex justify-between">
+    <nav className="py-6 lg:px-12 sm:px-6 px-3 flex justify-between">
       <Link href={"/"}>
         <h3 className="font-bold text-2xl">
           Val<span className="text-green-400">la</span>
