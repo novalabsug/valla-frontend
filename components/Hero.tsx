@@ -5,9 +5,9 @@ const Hero = () => {
   return (
     <div>
       <div className="pt-8 pb-2 flex">
-        <div className="m-auto w-4/5 flex">
-          <div className="w-3/5 pt-6 pb-2 pr-2">
-            <h3 className="text-6xl font-bold">
+        <div className="m-auto lg:w-4/5 sm:w-4/5 w-[90%] flex">
+          <div className="lg:w-3/5 sm:w-4/5 w-full pt-6 pb-2 pr-2">
+            <h3 className="lg:text-6xl sm:text-5xl text-4xl font-bold">
               All in one <span className="text-green-400">digital</span> payment
               solution
             </h3>

@@ -31,8 +31,8 @@ export default function Home() {
         {/* // section */}
         <div className="py-12">
           <div className="flex">
-            <div className="m-auto w-3/5">
-              <p className="text-center text-4xl font-light">
+            <div className="m-auto lg:w-3/5 sm:w-4/5 w-[90%]">
+              <p className="text-center lg:text-4xl sm:text-3xl text-2xl font-light">
                 Generate a <span className="font-bold">single</span> payment QR
                 code or reference code for{" "}
                 <span className="font-bold">multiple</span> payment options
@@ -62,8 +62,8 @@ export default function Home() {
 
         {/* // section */}
         <div className="py-12">
-          <div className="flex">
-            <div className="w-2/4 flex">
+          <div className="flex lg:flex-row flex-col">
+            <div className="lg:w-2/4 w-full flex">
               <div className="py-2 w-3/5 m-auto">
                 <img
                   src="images/img-2.jpg"
@@ -73,7 +73,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-2/4 pr-20 pl-4">
+            <div className="lg:w-2/4 w-full lg:pr-20 pr-4 pl-4">
               <div className="py-6">
                 <h3 className="text-center text-3xl font-semibold">
                   Key Features
@@ -81,7 +81,7 @@ export default function Home() {
               </div>
 
               <div className="py-2">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-4 gap-0">
                   <div className="my-1 py-3 px-2 bg-gray-100 rounded-md w-full flex">
                     <div className="w-1/5">
                       <ShieldCheckIcon size={35} className="text-gray-700" />

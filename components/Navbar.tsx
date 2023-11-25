@@ -3,6 +3,7 @@ import {
   CreditCard,
   LogIn,
   LogOut,
+  Menu,
   User2Icon,
   X,
 } from "lucide-react";
@@ -23,7 +24,7 @@ const Navbar = () => {
         </h3>
       </Link>
 
-      <div className="flex">
+      <div className="xl:flex lg:flex hidden">
         <div className="px-4 relative">
           <div
             className="py-2 px-3 rounded-full flex bg-green-500 cursor-pointer"
@@ -101,6 +102,10 @@ const Navbar = () => {
             variant="bg-black"
           />
         </Link>
+      </div>
+
+      <div className="lg:hidden xl:hidden block">
+        <Menu />
       </div>
     </nav>
   );
