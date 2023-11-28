@@ -1,10 +1,27 @@
-import { AppWindow, CreditCard, LogOut, User2Icon } from "lucide-react";
+import { AppWindow, CreditCard, LogOut, User2Icon, X } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
-const Sidenav = () => {
+const Sidenav = ({
+  displaySideNav,
+  setDisplaySideNav,
+}: {
+  displaySideNav: boolean;
+  setDisplaySideNav: Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
-    <div className="w-1/5">
+    <div
+      className={`lg:w-1/5 sm:w-2/5 w-4/5 lg:relative ${
+        displaySideNav ? "absolute" : "hidden"
+      } left-0 top-0 bottom-0 lg:p-0 p-6 lg:bg-none bg-white lg:shadow-none shadow-md z-10`}
+    >
+      <div
+        className="absolute top-4 right-3 cursor-pointer"
+        onClick={() => setDisplaySideNav((prev) => !prev)}
+      >
+        <X size={35} />
+      </div>
+
       <div className="py-2">
         <div className="">
           <div className="py-2 my-2">

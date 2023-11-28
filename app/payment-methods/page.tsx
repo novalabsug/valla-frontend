@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus, QrCodeIcon } from "lucide-react";
+import { Menu, Plus, QrCodeIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import ButtonCustom from "@/components/ButtonCustom";
@@ -13,6 +13,7 @@ const PaymentMethods = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
   const [addPayMethodModalDisplay, setAddPayMethodModalDisplay] =
     useState(false);
+  const [displaySideNav, setDisplaySideNav] = useState<boolean>(false);
 
   const checkIfAdded = (value: string): boolean => {
     const paymentMethod = SelectedPaymentOptions.filter(
@@ -54,11 +55,23 @@ const PaymentMethods = () => {
 
       <div className="pb-8 pt-4">
         <div className="flex">
-          <div className="m-auto w-4/5">
+          <div className="m-auto lg:w-4/5 w-[90%]">
             <div className="flex">
-              <Sidenav />
+              <Sidenav
+                setDisplaySideNav={setDisplaySideNav}
+                displaySideNav={displaySideNav}
+              />
 
-              <div className="py-4 px-8 w-4/5">
+              <div
+                className={`py-2 cursor-pointer w-fit ${
+                  displaySideNav ? "hidden" : "absolute top-[10%]"
+                }`}
+                onClick={() => setDisplaySideNav((prev) => !prev)}
+              >
+                <Menu size={35} />
+              </div>
+
+              <div className="py-4 px-8 lg:w-4/5 w-full">
                 <div className="py-2 relative w-full">
                   <div className="py-2">
                     <p className="text-light">Payment Methods</p>
@@ -75,7 +88,7 @@ const PaymentMethods = () => {
                       <p className="text-light">Add Payment Method</p>
                     </div>
 
-                    <div className="flex gap-6">
+                    <div className="flex gap-6 lg:flex-row flex-col">
                       <select
                         name="paymentOptions"
                         id="paymentOptions"
@@ -122,7 +135,7 @@ const PaymentMethods = () => {
                 </div>
 
                 <div className="py-6">
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
                     {SelectedPaymentOptions.map(
                       (
                         value: { title: String; cardNumber: String },

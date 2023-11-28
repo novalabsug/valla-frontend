@@ -5,7 +5,7 @@ import React from "react";
 const SignUp = () => {
   return (
     <main>
-      <nav className="py-6 px-12 flex justify-between">
+      <nav className="py-6 lg:px-12 sm:px-6 p-3 flex justify-between">
         <Link href={"/"}>
           <h3 className="font-bold text-2xl">
             Val<span className="text-green-400">la</span>
@@ -17,7 +17,7 @@ const SignUp = () => {
         {/* <div className="py-10"></div> */}
 
         <div className="flex">
-          <div className="m-auto w-3/5 py-12">
+          <div className="m-auto lg:w-3/5 sm:w-4/5 w-[90%] py-12">
             <div className="py-4">
               <h3 className="text-3xl font-light">
                 Sign Up for{" "}
@@ -32,7 +32,7 @@ const SignUp = () => {
             </div>
 
             <form className="py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
                 <div className="py-2">
                   <input
                     type="text"
@@ -52,7 +52,7 @@ const SignUp = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
                 <div className="py-2">
                   <input
                     type="text"

@@ -4,7 +4,7 @@ import ButtonCustom from "@/components/ButtonCustom";
 import GeneratePayment from "@/components/GeneratePayment";
 import Sidenav from "@/components/Sidenav";
 import TableComponent from "@/components/TableComponent";
-import { BellIcon, HelpCircle, QrCodeIcon } from "lucide-react";
+import { BellIcon, HelpCircle, Menu, QrCodeIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -13,9 +13,11 @@ const Dashboard = () => {
   const [notificationModalDisplay, setNotificationModalDisplay] =
     useState(false);
 
+  const [displaySideNav, setDisplaySideNav] = useState<boolean>(false);
+
   return (
     <main>
-      <nav className="py-6 px-12 flex justify-between">
+      <nav className="py-6 lg:px-12 px-4 flex justify-between">
         <Link href={"/"}>
           <h3 className="font-bold text-2xl">
             Val<span className="text-green-400">la</span>
@@ -40,13 +42,25 @@ const Dashboard = () => {
 
       <div className="pb-8 pt-4">
         <div className="flex">
-          <div className="m-auto w-4/5">
-            <div className="flex">
-              <Sidenav />
+          <div className="m-auto lg:w-4/5 w-[90%]">
+            <div className="flex lg:flex-row flex-col">
+              <Sidenav
+                displaySideNav={displaySideNav}
+                setDisplaySideNav={setDisplaySideNav}
+              />
 
-              <div className="py-4 px-8 w-4/5">
+              <div
+                className={`py-2 cursor-pointer w-fit ${
+                  displaySideNav ? "hidden" : "absolute top-[10%]"
+                }`}
+                onClick={() => setDisplaySideNav((prev) => !prev)}
+              >
+                <Menu size={35} />
+              </div>
+
+              <div className="py-4 lg:px-8 px-2 lg:w-4/5 w-full">
                 <div className="py-2 relative w-full">
-                  <div className="flex justify-between">
+                  <div className="flex justify-between lg:flex-row flex-col">
                     <div className="py-2">
                       <p className="text-light">Dashboard</p>
 
