@@ -24,6 +24,7 @@ const Profile = () => {
     useState(false);
   const [updatePasswordModalDisplay, setUpdatePasswordModalDisplay] =
     useState(false);
+  const [displaySideNav, setDisplaySideNav] = useState<boolean>(false);
 
   return (
     <main>
@@ -58,7 +59,10 @@ const Profile = () => {
         <div className="flex">
           <div className="m-auto w-4/5">
             <div className="flex">
-              <Sidenav />
+              <Sidenav
+                setDisplaySideNav={setDisplaySideNav}
+                displaySideNav={displaySideNav}
+              />
 
               <div className="py-4 px-8 w-4/5">
                 <div>
