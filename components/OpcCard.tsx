@@ -7,8 +7,8 @@ const OpcCard = ({
   opc: { _id: String; code: String; date: String };
 }) => {
   return (
-    <div className="py-2">
-      <div className="flex justify-between">
+    <div className="lg:py-2 py-4">
+      <div className="flex justify-between lg:flex-row flex-col">
         <div className="py-1">
           <h3>{opc.code}</h3>
         </div>

@@ -11,6 +11,7 @@ import {
   Edit,
   HelpCircle,
   Lock,
+  Menu,
   Plus,
   QrCodeIcon,
   Trash2Icon,
@@ -28,7 +29,7 @@ const Profile = () => {
 
   return (
     <main>
-      <nav className="py-6 px-12 flex justify-between">
+      <nav className="py-6 lg:px-12 px-4 flex justify-between">
         <Link href={"/"}>
           <h3 className="font-bold text-2xl">
             Val<span className="text-green-400">la</span>
@@ -57,14 +58,23 @@ const Profile = () => {
 
       <div className="pb-8 pt-4">
         <div className="flex">
-          <div className="m-auto w-4/5">
+          <div className="m-auto lg:w-4/5 w-full">
             <div className="flex">
               <Sidenav
                 setDisplaySideNav={setDisplaySideNav}
                 displaySideNav={displaySideNav}
               />
 
-              <div className="py-4 px-8 w-4/5">
+              <div
+                className={`py-2 px-4 cursor-pointer w-fit ${
+                  displaySideNav ? "hidden" : "absolute top-[10%]"
+                }`}
+                onClick={() => setDisplaySideNav((prev) => !prev)}
+              >
+                <Menu size={35} />
+              </div>
+
+              <div className="py-4 lg:px-8 px-4 lg:w-4/5 w-full">
                 <div>
                   <div className="py-2 relative w-full">
                     <div className="py-2">
@@ -73,7 +83,7 @@ const Profile = () => {
                       </h3>
                     </div>
 
-                    <div className="pt-2 pb-8 flex gap-6">
+                    <div className="pt-2 pb-8 flex lg:flex-row flex-col gap-6">
                       <div
                         onClick={() =>
                           setUpdateProfileModalDisplay((prev: boolean) =>
@@ -126,7 +136,7 @@ const Profile = () => {
 
                     <hr />
 
-                    <div className="grid grid-cols-3 w-4/5 gap-4 py-2">
+                    <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 w-4/5 gap-4 py-2">
                       <div className="py-1">
                         <p className="text-light text-sm">name</p>
                         <h3 className=" text-lg font-semibold">Jeremy Ma</h3>

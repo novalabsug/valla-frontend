@@ -10,7 +10,7 @@ const AddPaymentMethod = ({
   paymentMethod: string;
 }) => {
   return (
-    <div className="fixed z-20 p-8 top-[10%] left-[20%] right-[20%] bg-white rounded-lg shadow-md">
+    <div className="fixed z-20 p-8 top-[10%] lg:left-[20%] left-2 lg:right-[20%] right-2 bg-white rounded-lg shadow-md">
       <div
         className="absolute top-4 right-4 cursor-pointer"
         onClick={() => displayModal((prev: boolean) => (prev ? false : true))}
@@ -29,7 +29,7 @@ const AddPaymentMethod = ({
 
       <div className="">
         <form className="py-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             <div className="py-2">
               <div className="py-2">
                 <label htmlFor="cardNumber">Card Number</label>
@@ -44,7 +44,7 @@ const AddPaymentMethod = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             <div className="py-2">
               <div className="py-2">
                 <label htmlFor="expiry">Expiry date</label>

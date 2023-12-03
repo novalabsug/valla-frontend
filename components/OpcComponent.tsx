@@ -8,7 +8,7 @@ const OpcComponent = ({
   displayModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="fixed z-20 p-8 top-[10%] left-[30%] right-[30%] bg-white rounded-lg shadow-md">
+    <div className="fixed z-20 lg:p-8 p-4 lg:top-[10%] top-[30%] lg:left-[30%] left-2 lg:right-[30%] right-2 bg-white rounded-lg shadow-md">
       <div
         className="absolute top-4 right-4 cursor-pointer"
         onClick={() => displayModal((prev: boolean) => (prev ? false : true))}
@@ -25,7 +25,7 @@ const OpcComponent = ({
         </div>
 
         <div className="flex">
-          <div className="m-auto w-2/4">
+          <div className="m-auto lg:w-2/4 w-4/5">
             <form>
               <div className="py-2">
                 <input

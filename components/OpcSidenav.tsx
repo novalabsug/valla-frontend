@@ -9,7 +9,7 @@ const OpcSidenav = ({
   displayModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="fixed top-0 bottom-0 right-0 w-2/5 bg-white z-20 shadow-md">
+    <div className="fixed top-0 bottom-0 right-0 lg:w-2/5 w-4/5 bg-white z-20 shadow-md">
       <div
         className="absolute top-6 right-4 cursor-pointer"
         onClick={() => displayModal((prev: boolean) => (prev ? false : true))}

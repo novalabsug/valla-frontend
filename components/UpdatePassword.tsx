@@ -9,7 +9,7 @@ const UpdatePassword = ({
   displayModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="fixed z-20 p-8 top-[10%] left-[20%] right-[20%] bg-white rounded-lg shadow-md">
+    <div className="fixed z-20 lg:p-8 p-6 lg:top-[10%] top-[20%] lg:left-[20%] left-2 lg:right-[20%] right-2 bg-white rounded-lg shadow-md">
       <div
         className="absolute top-4 right-4 cursor-pointer"
         onClick={() => displayModal((prev: boolean) => (prev ? false : true))}
@@ -18,7 +18,10 @@ const UpdatePassword = ({
       </div>
 
       <div className="py-2">
-        <h3 className="text-2xl font-semibold">Change account password</h3>
+        <h3 className="lg:text-2xl text-xl font-semibold">
+          Change account password
+        </h3>
+
         <p>
           <span className="font-bold text-lg">Note:</span> you will be logged
           out of your current account
@@ -27,7 +30,7 @@ const UpdatePassword = ({
 
       <div className="">
         <form className="py-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             <div className="py-2">
               <div className="py-2">
                 <label htmlFor="password">Enter current account password</label>
@@ -41,7 +44,8 @@ const UpdatePassword = ({
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             <div className="py-2">
               <div className="py-2">
                 <label htmlFor="password">Enter new account password</label>

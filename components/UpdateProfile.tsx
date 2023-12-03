@@ -9,7 +9,7 @@ const UpdateProfile = ({
   displayModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="fixed z-20 p-8 top-[10%] left-[20%] right-[20%] bg-white rounded-lg shadow-md">
+    <div className="fixed z-20 lg:p-8 p-4 lg:top-[10%] top-[25%] lg:left-[20%] left-2 lg:right-[20%] right-2 bg-white rounded-lg shadow-md">
       <div
         className="absolute top-4 right-4 cursor-pointer"
         onClick={() => displayModal((prev: boolean) => (prev ? false : true))}
@@ -23,7 +23,7 @@ const UpdateProfile = ({
 
       <div className="">
         <form className="py-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             <div className="py-2">
               <input
                 type="text"
@@ -45,7 +45,7 @@ const UpdateProfile = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             <div className="py-2">
               <input
                 type="text"
@@ -56,7 +56,7 @@ const UpdateProfile = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             <div className="py-2">
               <div className="py-2">
                 <label htmlFor="password">Enter account password</label>

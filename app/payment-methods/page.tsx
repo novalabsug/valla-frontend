@@ -27,7 +27,7 @@ const PaymentMethods = () => {
 
   return (
     <main>
-      <nav className="py-6 px-12 flex justify-between">
+      <nav className="py-6 lg:px-12 px-4 flex justify-between">
         <Link href={"/"}>
           <h3 className="font-bold text-2xl">
             Val<span className="text-green-400">la</span>

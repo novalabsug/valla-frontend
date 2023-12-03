@@ -35,8 +35,8 @@ const Payment = () => {
         <div className="flex">
           <div className="m-auto w-[90%]">
             <div className="px-4 pb-3">
-              <div className="flex">
-                <div className="flex w-2/4 gap-6">
+              <div className="flex lg:flex-row flex-col">
+                <div className="flex lg:w-2/4 w-full gap-6 lg:flex-row flex-col">
                   <div className="w-fit">
                     <h3 className="text-lg font-semibold">
                       Set transaction limit (Daily)
@@ -59,13 +59,15 @@ const Payment = () => {
                     </div>
                   </div>
 
-                  <div className="w-fit">
+                  <div className="lg:w-fit w-full">
                     <div className="flex">
                       <h3 className="text-lg font-semibold">Generate OPC </h3>
+
                       <div className="ml-4">
                         <HelpCircle className="text-green-500 mt-1" size={15} />
                       </div>
                     </div>
+
                     <p className="">One-time Payment Codes are temporary</p>
 
                     <div
@@ -85,15 +87,7 @@ const Payment = () => {
                   </div>
                 </div>
 
-                <div className="w-2/4 flex justify-end gap-6">
-                  <div className="py-2 hidden">
-                    <ButtonCustom
-                      type="button"
-                      variant="bg-black"
-                      text="Activate vendor features"
-                    />
-                  </div>
-
+                <div className="lg:w-2/4 w-full gap-6">
                   <div
                     className="py-2 w-fit"
                     onClick={() =>
@@ -112,9 +106,9 @@ const Payment = () => {
               </div>
             </div>
 
-            <div className="flex py-6">
-              <div className="w-1/5">
-                <div className="pb-8 pt-4 px-4 bg-gray-500 rounded-lg h-[100px]">
+            <div className="flex lg:flex-row flex-col py-6">
+              <div className="lg:w-1/5 w-full">
+                <div className="pb-8 pt-4 px-4 bg-gray-500 rounded-lg lg:h-[100px] h-fit">
                   <div className="py">
                     <h3 className="text-lg font-semibold text-white text-center">
                       Recent transactions
@@ -164,12 +158,12 @@ const Payment = () => {
                 </div>
               </div>
 
-              <div className="w-4/5">
-                <div className="pl-10">
+              <div className="lg:w-4/5 w-full">
+                <div className="lg:pl-10 p-0">
                   <div className="flex pt-8 pb-2">
-                    <div className="m-auto w-4/5">
-                      <div className="grid grid-cols-2">
-                        <div className="hidden border-r-2 border-r-gray-500 pt-10 pb-4 px-8">
+                    <div className="m-auto lg:w-4/5 w-full">
+                      <div className="grid lg:grid-cols-2 grid-cols-1">
+                        <div className="hidden lg:border-r-2 border-0 lg:border-r-gray-500 border-none pt-10 pb-4 px-8">
                           <h3 className="text-2xl font-semibold text-center">
                             Switch to mobile phone device to scan code
                           </h3>
@@ -179,7 +173,7 @@ const Payment = () => {
                           </div>
                         </div>
 
-                        <div className="py-8 flex justify-center flex-col items-center border-r-2 border-r-gray-500">
+                        <div className="py-8 flex justify-center flex-col items-center lg:border-r-2 border-none border-r-gray-500">
                           <div className="p-2 w-fit h-fit border-2 rounded-lg border-gray-700 cursor-pointer">
                             <QrCodeIcon
                               size={120}

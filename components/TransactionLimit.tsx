@@ -10,7 +10,7 @@ const TransactionLimit = ({
   displayModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="fixed z-20 p-8 top-[10%] left-[20%] right-[20%] bg-white rounded-lg shadow-md">
+    <div className="fixed z-20 lg:p-8 p-4 lg:top-[10%] top-[20%] lg:left-[20%] left-2 lg:right-[20%] right-2 bg-white rounded-lg shadow-md">
       <div
         className="absolute top-4 right-4 cursor-pointer"
         onClick={() => displayModal((prev: boolean) => (prev ? false : true))}
@@ -48,8 +48,8 @@ const TransactionLimit = ({
             </h3>
 
             <div className="py-2">
-              <div className="py-2 flex">
-                <div className="w-[30%] px-2">
+              <div className="py-2 flex lg:flex-row flex-col lg:gap-0 gap-4">
+                <div className="lg:w-[30%] w-full px-2">
                   <select
                     name="paymentMethods"
                     id=""
@@ -88,14 +88,14 @@ const TransactionLimit = ({
                   </select>
                 </div>
 
-                <div className="w-[50%] px-2">
+                <div className="lg:w-[50%] w-full px-2">
                   <Input
                     className="w-full focus:border-green-500"
                     placeholder="transaction limit"
                   />
                 </div>
 
-                <div className="w-[20%] px-2">
+                <div className="lg:w-[20%] w-full px-2">
                   <ButtonCustom
                     text="Set limit"
                     type="button"
